@@ -1,0 +1,107 @@
+//Para mostrar datos
+<?php
+                                    $host_db = "localhost";
+                                    $user_db = "root";
+                                    $pass_db = "";
+                                    $db_name = "empleados";
+                                    $tbl_name = "clientes";
+                                  
+                                    $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
+                                  
+                                    if($conexion->connect_error){
+                                      die("Ocurrio un fallo en la conexión" . $conexion->connect_error);
+                                    }
+                                  
+                                    $buscarProducto = "SELECT * FROM $tbl_name ";
+                                  
+                                    $result = $conexion->query($buscarProducto);
+                                  
+                                          echo"
+                                          <table border = 1 cellspacing = 4 cellpadding = 8
+                                            
+                                                <tr>
+                                                <thead>
+                                                  <th>Clave</th>
+                                                  <th>Nombre</th>
+                                                  <th>Apellido Paterno</th>
+                                                  <th>Apellido Materno</th>
+                                                  <th>Ocupación</th>
+                                                  <th>Telefono</th>
+                                                  <th>Email</th>
+                                                  <th>Usuario</th>
+                                                  </thead>
+                                              </tr>
+                                          ";
+
+                                      while($registro = mysqli_fetch_array($result)){
+                                          echo"
+                                          <tr>
+                                              <td>".$registro['ID']."</td>
+                                              <td>".$registro['NOMBRE']."</td>
+                                              <td>".$registro['APELLIDO_P']."</td>
+                                              <td>".$registro['APELLIDO_M']."</td>
+                                              <td>".$registro['OCUPACION']."</td>
+                                              <td>".$registro['TELEFONO_FIJO']."</td>
+                                              <td>".$registro['EMAIL']."</td>
+                                              <td>".$registro['USUARIO']."</td>
+                                  
+                                              </td>";
+                                      }
+                                      echo"</table>";
+                                    ?>
+//Para registrar datos
+<?php
+  $host_db = "localhost";
+  $user_db = "root";
+  $pass_db = "";
+  $db_name = "empleados";
+  $tbl_name = "clientes";
+
+  $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
+
+  if($conexion->connect_error){
+    die("Ocurrio un fallo en la conexión" . $conexion->connect_error);
+  }
+
+  var_dump($_POST['nombre']);
+    $buscarProducto = "SELECT * FROM $tbl_name WHERE nombre = '$_POST[nombre]'";
+
+    $result = $conexion->query($buscarProducto);
+
+    $count = mysqli_num_rows($result);
+
+    if ($count == 1) {
+      echo"<br/>"."El nombre ya a sido tomado"."<br/>";
+      echo"<a href='Registro.html'>Porfavor escoga otro nombre</a>";
+    }
+    else{
+      $query = "INSERT INTO clientes (NOMBRE, APELLIDO_P, APELLIDO_M, OCUPACION, TELEFONO_FIJO, EMAIL, USUARIO)
+                VALUES ('$_POST[nombre]', '$_POST[Apellido_Paterno]', '$_POST[Apellido_Materno]', '$_POST[Ocupacion]', '$_POST[Telefono]', '$_POST[Email]', '$_POST[usuario]')";
+    }
+
+    if ($conexion->query($query) == TRUE) {
+      echo"<br/><h2>Usuario creado exitosamente</h2>";
+    }
+    else{
+      echo"Error al crear el usuario." . $query . "<br>" . $conexion->error;
+    }
+?>
+//Para eliminar datos
+<?php
+  $host_db = "localhost";
+  $user_db = "root";
+  $pass_db = "";
+  $db_name = "empleados";
+  $tbl_name = "clientes";
+
+  $conexion = mysqli_connect($host_db, $user_db, $pass_db, $db_name)
+  or die ("Ocurrio un problema en la conexión");
+
+  $nombre_com = $_POST["clave"];
+
+  mysqli_query($conexion, "DELETE from clientes where ID='$nombre_com'")
+  or die ("Error al eliminar datos");
+
+  mysqli_close($conexion);
+  echo"Usuario eliminado correctamente";
+?>

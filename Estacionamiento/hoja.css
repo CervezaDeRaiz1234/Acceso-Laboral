@@ -1,0 +1,83 @@
+body{
+	font-family: Arial;
+}
+.centrado{
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    text-align: center;
+    margin-top: 200px;
+}
+.Texto /*Es para el login */
+{
+	width:300px;
+	margin-left: auto;
+    margin-right: auto;
+	background-color: #030B06;
+    color: #fff;    
+    margin-top: 10px; 
+	text-align: center;
+	border-radius: 15px;
+	padding:20px; 
+	box-shadow:0px 0px 20px rgba(0,0,0,0,50);
+}
+#imagen{
+    margin-left: auto;
+    margin-right: auto;
+    width: 125px;
+    margin-top: 10px;
+}
+.Texto1 /*Para todos los cuadros que tendran datos*/
+{
+	margin-left: auto;
+    margin-right: auto;
+	background-color: #030B06;
+    color: #fff;    
+	text-align: center;
+	border-radius: 30px;
+	padding:10px; 
+	box-shadow:0px 0px 20px rgba(0,0,0,0,50);
+}
+#Texto2 /*Solo para los datos generales*/
+{
+	margin-left: auto;
+    margin-right: auto;
+	background-color: #030B06;
+    color: #fff;    
+	text-align: left;
+	border-radius: 30px;
+	padding:20px; 
+	box-shadow:0px 0px 20px rgba(0,0,0,0,50);
+}
+#main_continer{
+	margin: 5px auto;
+	width: 185px;
+}
+table{
+	background-color: white;
+	border-collapse: collapse; /*Para hacer la tabla mas complimida*/
+	width: 100%;
+}
+th, td{
+	/*border: solid 1px black;*/
+	padding: 20;
+	text-align: center;
+}
+thead{
+	background-color: #246355;
+	border-bottom: solid 5px #0F362D;
+	color: white;
+}
+tr:nth-child(even){
+	background-color: #ddd;
+}
+tr:hover td{ /*Aquí le puedes dar un efecto chido*/
+	background-color: #369681;
+	color: white;
+}
+p{
+	margin-left: auto;
+    margin-right: auto;
+    width: 125px;
+    margin-top: 10px;
+}
