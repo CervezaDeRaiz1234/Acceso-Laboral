@@ -1,0 +1,37 @@
+body{
+	font-family: Arial;
+}
+
+#main_continer{
+	margin: 5px auto;
+	width: 185px;
+}
+table{
+	background-color: white;
+	border-collapse: collapse; /*Para hacer la tabla mas complimida*/
+	width: 100%;
+}
+th, td{
+	/*border: solid 1px black;*/
+	padding: 20;
+	text-align: center;
+}
+thead{
+	background-color: #246355;
+	border-bottom: solid 5px #0F362D;
+	color: white;
+}
+tr:nth-child(even){
+	background-color: #ddd;
+}
+tr:hover td{ /*Aquí le puedes dar un efecto chido*/
+	background-color: #369681;
+	color: white;
+}
+.Mover_botones{
+	width: 500px;
+    margin-top: 500px;
+}
+
+
+
